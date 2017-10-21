@@ -1,0 +1,19 @@
+IF CANNOT CONNECT MONGODB ON STARTUP "502 BAD GATEWAY" ERROR OCCURS!
+
+check if the process started:
+ps aux | grep mongod
+
+to repair unclean shutdown:
+depending on how data folder created 
+mongod --dbpath /data/db --repair
+or may be
+mongod --dbpath /data --repair
+
+then:
+delete data/mogod.lock
+
+to shutdown cleanly:
+mongod --shutdown
+
+see for setting up mongodb in c9: 
+https://community.c9.io/t/setting-up-mongodb/1717
